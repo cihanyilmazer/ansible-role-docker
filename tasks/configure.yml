@@ -1,0 +1,20 @@
+---
+- name: Add {{ docker_user }} to docker group
+  user:
+    name: "{{ docker_user }}"
+    append: yes
+    groups:
+      - docker
+  when:
+    - docker_user is defined
+
+- name: Change default Docker address pool
+  template:
+    src: daemon.json.j2
+    dest: /etc/docker/daemon.json
+  notify:
+    - restart containerd
+    - restart docker
+  when:
+    - docker_address_pool_base is defined
+    - docker_address_pool_size is defined

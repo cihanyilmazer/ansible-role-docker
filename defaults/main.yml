@@ -1,0 +1,4 @@
+---
+# docker_user: root
+# docker_address_pool_base: 172.20.0.0/16
+# docker_address_pool_size: 24

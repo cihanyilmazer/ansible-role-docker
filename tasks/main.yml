@@ -1,0 +1,11 @@
+---
+- import_tasks: install.yml
+  tags:
+    - docker
+    - docker-install
+    - never
+- import_tasks: configure.yml
+  tags:
+    - docker
+    - docker-configure
+    - never
